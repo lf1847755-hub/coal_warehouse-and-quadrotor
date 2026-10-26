@@ -1,0 +1,21 @@
+{
+  "checked_at": "2026-10-24T17:04:14.7480383+08:00",
+  "storage_unit_tests": 6,
+  "workflow_integration_checks": 31,
+  "native_ui_checks": [
+    "Existing saved warehouse renders after startup",
+    "English T in focused enabled viewport starts takeoff",
+    "Stage search R and W do not reset or move airborne drone",
+    "Property search R does not reset airborne drone",
+    "Pause preserves position and simulation time",
+    "Native Stop persists and disables flight keyboard"
+  ],
+  "runtime_error_count": 0,
+  "original_scene_sha256": "10B6177E90E9C0CF2D8F4F7461B09BC4E0845969746F55EAD98EEE8D68F0A716",
+  "original_scene_preserved": true,
+  "notes": [
+    "Tests used temporary USD files for edits and restore-default checks",
+    "Keyboard requires English input and explicit enable plus viewport focus",
+    "Final follow-up changes only adjust panel height and native timeline status text"
+  ]
+}
