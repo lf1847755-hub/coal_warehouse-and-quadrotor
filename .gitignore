@@ -1,0 +1,8 @@
+# 运行产物（体积大、每次运行都会变）
+logs/
+backups/
+setup_backups/
+
+# Python
+__pycache__/
+*.pyc

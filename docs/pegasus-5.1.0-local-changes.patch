@@ -1,0 +1,27 @@
+diff --git a/pegasus/simulator/logic/backends/__init__.py b/pegasus/simulator/logic/backends/__init__.py
+index 908b951..445d3c1 100644
+--- a/pegasus/simulator/logic/backends/__init__.py
++++ b/pegasus/simulator/logic/backends/__init__.py
+@@ -9,6 +9,9 @@ from .ardupilot_mavlink_backend import ArduPilotMavlinkBackend, ArduPilotMavlink
+ 
+ # Check if the ROS2 package is installed
+ try:
++    import os
++    if os.environ.get('PEGASUS_DISABLE_ROS2') == '1':
++        raise ImportError('ROS2 is disabled for the local manual flight demo')
+     from .ros2_backend import ROS2Backend
+ except:
+     import carb
+diff --git a/pegasus/simulator/params.py b/pegasus/simulator/params.py
+index ab29717..faa521b 100644
+--- a/pegasus/simulator/params.py
++++ b/pegasus/simulator/params.py
+@@ -31,7 +31,7 @@ ROBOTS_ASSETS = ASSET_PATH + "/Robots"
+ ROBOTS = {"Iris": ROBOTS_ASSETS + "/Iris/iris.usd"} #, "Flying Cube": ROBOTS_ASSETS + "/iris_cube.usda"}
+ 
+ # Setup the default simulation environments path
+-NVIDIA_ASSETS_PATH = str(nucleus.get_assets_root_path())
++NVIDIA_ASSETS_PATH = str(nucleus.get_assets_root_path(skip_check=True))
+ ISAAC_SIM_ENVIRONMENTS = "/Isaac/Environments"
+ NVIDIA_SIMULATION_ENVIRONMENTS = {
+     "Default Environment": "Grid/default_environment.usd",

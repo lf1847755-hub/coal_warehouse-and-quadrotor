@@ -1,2 +1,6 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# 补丁文件必须保持 LF：仓库根是 * text=auto，checkout 时会把 .patch 转成 CRLF，
+# 导致 patch 上下文与 Pegasus 源码（LF）失配、git apply 失败。
+docs/*.patch -text
+
+# Windows 批处理按 CRLF 检出
+*.bat text eol=crlf
